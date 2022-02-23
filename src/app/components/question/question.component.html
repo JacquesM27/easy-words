@@ -2,12 +2,26 @@
   <div class="col s12">
     <div class="card blue-grey darken-1">
       <div class="card-content white-text">
-        <h2>Spoon</h2>
+        <h2>{{ word ? word.word : "End" }}</h2>
       </div>
       <div class="card-action">
-        <button class="btn-large blue mr10">Noun</button>
-        <button class="btn-large blue mr10">Verb</button>
-        <button class="btn-large black mr10">Check</button>
+        <button
+          class="btn-large blue mr10"
+          (click)="addToNouns(word)"
+          *ngIf="word"
+        >
+          Noun
+        </button>
+        <button
+          class="btn-large blue mr10"
+          (click)="addToVerbs(word)"
+          *ngIf="word"
+        >
+          Verb
+        </button>
+        <button class="btn-large black mr10" (click)="check()" *ngIf="!word">
+          Check
+        </button>
       </div>
     </div>
   </div>
